@@ -1,0 +1,57 @@
+.app-bar {
+  background-color: brown;
+  padding: 1.5%;
+  width: 100%;
+
+  position: fixed;
+
+  display: flex;
+  flex-direction: row;
+  /* main axis alignment */
+  justify-content: space-evenly;
+  /* cross axis alignment */
+  align-items: center;
+}
+
+.cart-button {
+  background-color: #654321;
+  padding: 0.5%;
+  width: 13%;
+  border-radius: 20px;
+
+  color: white;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.cart-button-counter {
+  background-color: brown;
+  padding: 0.5%;
+  padding-left: 8%;
+  padding-right: 8%;
+  border-radius: 20px;
+}
+
+.spacer {
+  width: 30%;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.material-icons {
+  font-size: 1.25rem;
+}
+
+/* incase of small devices */
+@media only screen and (max-width: 750px) {
+  .cart-button {
+    padding: 2%;
+  }
+}
