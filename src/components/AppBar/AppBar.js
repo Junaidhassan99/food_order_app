@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import DataContext from '../../context/Data-Context';
 
 import './AppBar.css'
 
 function AppBar(props) {
+
+    const ctx = useContext(DataContext);
+
+    let itemsInCart=0;
+
+    ctx.cart.forEach((item,index)=>{
+        itemsInCart+=item.amount;
+    });
+
+
     return (
         <div className='app-bar'>
             <div className='title'>ReactMeals</div>
@@ -12,7 +24,7 @@ function AppBar(props) {
                     shopping_cart
                 </span>
                 <div>Your Cart</div>
-                <div className='cart-button-counter'>0</div>
+                <div className='cart-button-counter'>{itemsInCart}</div>
             </div>
         </div>
     );

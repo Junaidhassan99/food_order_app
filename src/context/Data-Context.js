@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const DataContext = React.createContext({
     menu: [],
     cart: [],
-    addToCart: (menuItem) => { },
+    addToCart: (menuItem, amount) => { },
 });
 
 
@@ -62,8 +62,16 @@ function DataContextProvider(props) {
 
     const [cart, setCartState] = useState([]);
 
-    function addToCart(menuItem) {
-        setCartState([...cart, menuItem]);
+    function addToCart(cartItem) {
+
+        console.log('clicked');
+        //console.log(cartItem);
+
+        console.log([...cart, cartItem]);
+
+        setCartState([...cart, cartItem]);
+
+        console.log({cart});
     }
 
     return (<DataContext.Provider
