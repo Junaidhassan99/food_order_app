@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
   return (
-    <div style={{ background: `url('${process.env.PUBLIC_URL}/images/food_img.jpg')`, height: '400px', width: '100%' }}>
+    <div style={{ background: `url('${process.env.PUBLIC_URL}/images/food_img.jpg')`, height: '600px', width: '100%' }}>
       <AppBar />
       <div className='spacer'></div>
       <Note />

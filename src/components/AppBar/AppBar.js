@@ -44,7 +44,7 @@ function AppBar(props) {
                 <div className='title'>ReactMeals</div>
                 <div className='spacer'></div>
                 <div className='cart-button' onClick={handleClickToOpen}>
-                    <span className="material-icons">
+                    <span className="material-icons icon-style">
                         shopping_cart
                     </span>
                     <div>Your Cart</div>
@@ -67,7 +67,13 @@ function AppBar(props) {
                                         </div>
                                     </div>
                                     <div className='spacer-dialog-item'></div>
-                                    <div className='remove-cart-item-button' onClick={() => ctx.removeFromCart(item.timeStamp)}>-</div>
+                                    <div className='remove-cart-item-button' onClick={() => ctx.removeFromCart(item.timeStamp)}>
+                                        <center>
+                                            <span class="material-icons icon-style">
+                                                remove
+                                            </span>
+                                        </center>
+                                    </div>
                                 </div>
                                 <hr />
                             </div>;
