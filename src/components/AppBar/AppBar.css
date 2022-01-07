@@ -11,6 +11,8 @@
   justify-content: space-evenly;
   /* cross axis alignment */
   align-items: center;
+
+  color: white;
 }
 
 .cart-button {

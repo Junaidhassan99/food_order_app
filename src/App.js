@@ -1,5 +1,6 @@
 import AppBar from './components/AppBar/AppBar';
 import Note from './components/Note/Note';
+import MenuList from './components/MenuList/MenuList';
 
 import './App.css';
 
@@ -7,8 +8,9 @@ function App() {
   return (
     <div style={{ background: `url('${process.env.PUBLIC_URL}/images/food_img.jpg')`, height: '400px', width: '100%' }}>
       <AppBar />
-      <div class='spacer'></div>
-      <Note/>
+      <div className='spacer'></div>
+      <Note />
+      <MenuList />
       {/* <div style={{height:'1000px'}}></div> */}
     </div>
 

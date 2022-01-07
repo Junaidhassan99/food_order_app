@@ -4,15 +4,15 @@ import './AppBar.css'
 
 function AppBar(props) {
     return (
-        <div class='app-bar'>
-            <div class='title'>ReactMeals</div>
-            <div class='spacer'></div>
-            <div class='cart-button'>
-                <span class="material-icons">
+        <div className='app-bar'>
+            <div className='title'>ReactMeals</div>
+            <div className='spacer'></div>
+            <div className='cart-button'>
+                <span className="material-icons">
                     shopping_cart
                 </span>
                 <div>Your Cart</div>
-                <div class='cart-button-counter'>0</div>
+                <div className='cart-button-counter'>0</div>
             </div>
         </div>
     );

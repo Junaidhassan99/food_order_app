@@ -2,7 +2,7 @@ import './Note.css';
 
 function Note() {
     return (
-        <div class='note'>
+        <div className='note'>
             <h1>Delicious Food Delivered To You</h1>
         </div>
 

@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
+import { DataContextProvider } from './context/Data-Context';
+
 ReactDOM.render(
-  <React.StrictMode>
+  <DataContextProvider>
     <App />
-  </React.StrictMode>,
+  </DataContextProvider>
+  ,
   document.getElementById('root')
 );
 
