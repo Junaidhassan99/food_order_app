@@ -26,7 +26,7 @@ function AppBar(props) {
     });
 
     ctx.cart.forEach((item, index) => {
-        totalPrice += item.amount*item.price;
+        totalPrice += item.amount * item.price;
     });
 
     const handleClickToOpen = () => {
@@ -67,19 +67,27 @@ function AppBar(props) {
                                         </div>
                                     </div>
                                     <div className='spacer-dialog-item'></div>
-                                    <div className='remove-cart-item-button'>-</div>
+                                    <div className='remove-cart-item-button' onClick={() => ctx.removeFromCart(item.timeStamp)}>-</div>
                                 </div>
                                 <hr />
                             </div>;
                         })}
-                        <div className='title-and-price title-menu-item'>{`Total Amount = $${totalPrice.toFixed(2)}`}</div>
+                        <div className='title-and-price title-menu-item' >{`Total Amount = $${totalPrice.toFixed(2)}`}</div>
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleToClose}
-                        color="primary" >
+                    <div onClick={handleToClose}
+                        style={{ color: 'red' }} >
                         Close
-                    </Button>
+                    </div>
+                    <div onClick={() => {
+                        console.log('ordering: ...');
+                        console.log(ctx.cart);
+                    }}
+                    >
+                        <div className='add-button' > Order</div>
+
+                    </div>
                 </DialogActions>
             </Dialog>
         </div>

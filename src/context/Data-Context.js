@@ -3,7 +3,8 @@ import React, { useState } from "react";
 const DataContext = React.createContext({
     menu: [],
     cart: [],
-    addToCart: (menuItem, amount) => { },
+    addToCart: (cartItem) => { },
+    removeFromCart:(timeStamp) => { },
 });
 
 
@@ -63,19 +64,25 @@ function DataContextProvider(props) {
     const [cart, setCartState] = useState([]);
 
     function addToCart(cartItem) {
-
-
         //console.log(cartItem);
 
         setCartState([...cart, cartItem]);
+    }
+
+    function removeFromCart(timeStamp) {
+        let afterRemovalCart = cart.filter(function (item) {
+            return item.timeStamp !== timeStamp
+        })
+        setCartState(afterRemovalCart);
 
     }
 
     return (<DataContext.Provider
         value={{
             menu: menu,
-            addToCart: addToCart,
             cart: cart,
+            addToCart: addToCart,
+            removeFromCart: removeFromCart,
         }}
     >
         {props.children}
