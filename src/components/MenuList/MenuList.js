@@ -1,13 +1,17 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useState } from 'react';
 
 import DataContext from '../../context/Data-Context';
 
 import './MenuList.css';
 
 function MenuItem(props) {
-    const amountRef = useRef();
-
+    //const amountRef = useRef();
+    let [amount,setAmount] = useState('1');
     //console.log(amountRef.current.value);
+
+    function updateAmount(event) {
+        setAmount(event.target.value);
+    }
 
     return <div>
         <div className='menu-item' key={props.menuItem.id}>
@@ -20,9 +24,9 @@ function MenuItem(props) {
                 <div className='amount-and-input'>
                     <div className='amount'>Amount</div>
                     <div className='spacer'></div>
-                    <div ><input className='input' type='number' min={1} ref={amountRef}></input></div>
+                    <div ><input className='input' type='number' min={1} value={amount} onChange={updateAmount}></input></div>
                 </div>
-                <div className='add-button' onClick={() => props.onAddToCart(props.menuItem, amountRef.current.value)}>+ Add</div>
+                <div className='add-button' onClick={() => props.onAddToCart(props.menuItem, amount)}>+ Add</div>
             </div>
         </div>
         <hr />
@@ -38,6 +42,7 @@ function MenuList() {
             title: menuItem.title,
             price: menuItem.price,
             amount: parseInt(amount),
+            timeStamp: Date.now().toString()
         };
 
         //console.log(cartItem);

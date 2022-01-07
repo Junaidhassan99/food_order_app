@@ -19,9 +19,14 @@ function AppBar(props) {
     const ctx = useContext(DataContext);
 
     let itemsInCart = 0;
+    let totalPrice = 0;
 
     ctx.cart.forEach((item, index) => {
         itemsInCart += item.amount;
+    });
+
+    ctx.cart.forEach((item, index) => {
+        totalPrice += item.amount*item.price;
     });
 
     const handleClickToOpen = () => {
@@ -51,7 +56,7 @@ function AppBar(props) {
                 <DialogContent>
                     <DialogContentText>
                         {ctx.cart.map((item, index) => {
-                            return <div>
+                            return <div key={item.timeStamp}>
                                 <div className='dialog-item'>
                                     <div>
                                         <div className='title-and-price title-menu-item'>{item.title}</div>
@@ -67,11 +72,12 @@ function AppBar(props) {
                                 <hr />
                             </div>;
                         })}
+                        <div className='title-and-price title-menu-item'>{`Total Amount = $${totalPrice.toFixed(2)}`}</div>
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleToClose}
-                        color="primary" autoFocus>
+                        color="primary" >
                         Close
                     </Button>
                 </DialogActions>
