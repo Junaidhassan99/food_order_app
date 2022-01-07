@@ -78,3 +78,7 @@
 
   margin: 10px;
 }
+
+.add-button:hover {
+  background-color: rgb(138, 34, 34);
+}

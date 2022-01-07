@@ -15,6 +15,10 @@
   color: white;
 }
 
+.cart-button:hover {
+  background-color: rgb(138, 34, 34);
+}
+
 .cart-button {
   background-color: #654321;
   padding: 0.5%;
@@ -82,6 +86,11 @@
 
   font-weight: bold;
   color: red;
+}
+
+.remove-cart-item-button:hover {
+  color: rgb(138, 34, 34);
+  outline: 1px solid rgb(138, 34, 34);
 }
 
 /* incase of small devices */
