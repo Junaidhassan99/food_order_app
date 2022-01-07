@@ -64,14 +64,11 @@ function DataContextProvider(props) {
 
     function addToCart(cartItem) {
 
-        console.log('clicked');
-        //console.log(cartItem);
 
-        console.log([...cart, cartItem]);
+        //console.log(cartItem);
 
         setCartState([...cart, cartItem]);
 
-        console.log({cart});
     }
 
     return (<DataContext.Provider

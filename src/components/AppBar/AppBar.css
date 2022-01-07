@@ -51,6 +51,38 @@
   font-size: 1.25rem;
 }
 
+.price-and-amount-dialog-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.spacer-price-and-amount-dialog-row {
+  width: 10px;
+}
+
+.dialog-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.spacer-dialog-item {
+  width: 100px;
+}
+
+.remove-cart-item-button {
+  outline: 1px solid red;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+
+  font-weight: bold;
+  color: red;
+}
+
 /* incase of small devices */
 @media only screen and (max-width: 750px) {
   .cart-button {

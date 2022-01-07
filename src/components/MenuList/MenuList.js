@@ -7,6 +7,8 @@ import './MenuList.css';
 function MenuItem(props) {
     const amountRef = useRef();
 
+    //console.log(amountRef.current.value);
+
     return <div>
         <div className='menu-item' key={props.menuItem.id}>
             <div className='menu-item-side left-side'>
@@ -38,7 +40,7 @@ function MenuList() {
             amount: parseInt(amount),
         };
 
-        console.log(cartItem);
+        //console.log(cartItem);
         ctx.addToCart(cartItem);
     }
 
