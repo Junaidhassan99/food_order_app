@@ -11,6 +11,8 @@
   justify-content: space-evenly;
   /* cross axis alignment */
   align-items: center;
+
+  z-index: 1;
 }
 
 .cart-button {

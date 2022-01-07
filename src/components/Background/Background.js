@@ -5,7 +5,7 @@ import './Background.css';
 
 function Background(props) {
   return (
-    <div >
+    <div class='background-img-wrapper'>
       <img class='background-img' src='/images/food_img.jpg' alt='food img'/>
       {props.children}
     </div>

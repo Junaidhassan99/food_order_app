@@ -1,3 +1,7 @@
 .background-img{
     width: 100%;
 }
+
+.background-img-wrapper{
+    z-index: -1;   
+}
