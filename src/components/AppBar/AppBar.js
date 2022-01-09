@@ -42,13 +42,13 @@ function AppBar(props) {
             <div className='app-bar'>
                 <div className='title'>ReactMeals</div>
                 <div className='spacer'></div>
-                <div className='cart-button' onClick={handleClickToOpen}>
+                <button className='cart-button' onClick={handleClickToOpen}>
                     <span className="material-icons icon-style">
                         shopping_cart
                     </span>
                     <div>Your Cart</div>
                     <div className='cart-button-counter'>{itemsInCart}</div>
-                </div>
+                </button>
             </div>
             <Dialog open={open} onClose={handleToClose}>
                 <DialogTitle>{'Your Cart'}</DialogTitle>
@@ -81,16 +81,17 @@ function AppBar(props) {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <div onClick={handleToClose}
-                        style={{ color: 'red' }} >
+                    <button onClick={handleToClose}
+                        className='add-button'
+                        style={{ backgroundColor: 'white', color: 'black' }} >
                         Close
-                    </div>
+                    </button>
                     <div onClick={() => {
                         console.log('ordering: ...');
                         console.log(ctx.cart);
                     }}
                     >
-                        <div className='add-button' > Order</div>
+                        <button className='add-button' > Order</button>
 
                     </div>
                 </DialogActions>

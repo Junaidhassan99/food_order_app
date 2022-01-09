@@ -26,7 +26,7 @@ function MenuItem(props) {
                     <div className='spacer-amount'></div>
                     <div ><input className='input' type='number' min={1} value={amount} onChange={updateAmount}></input></div>
                 </div>
-                <div className='add-button' onClick={() => props.onAddToCart(props.menuItem, amount)}>+ Add</div>
+                <button className='add-button' onClick={() => props.onAddToCart(props.menuItem, amount)}>+ Add</button>
             </div>
         </div>
         <hr />
