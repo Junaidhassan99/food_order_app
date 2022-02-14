@@ -11,7 +11,15 @@ import DataContext from '../../context/Data-Context';
 import './AppBar.css'
 import '../MenuList/MenuList.css';
 
+
 function AppBar(props) {
+
+    let userAddress = {
+        userName: "",
+        phoneNo: "",
+        email: "",
+        address: "",
+    };
 
     const [open, setOpen] = React.useState(false);
 
@@ -37,6 +45,8 @@ function AppBar(props) {
     };
 
 
+
+
     return (
         <div>
             <div className='app-bar'>
@@ -54,30 +64,44 @@ function AppBar(props) {
                 <DialogTitle>{'Your Cart'}</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        {ctx.cart.map((item, index) => {
-                            return <div key={item.timeStamp}>
-                                <div className='dialog-item'>
-                                    <div>
-                                        <div className='title-and-price title-menu-item'>{item.title}</div>
-                                        <div className='price-and-amount-dialog-row'>
-                                            <div className='title-and-price price'>{`$${item.price}`}</div>
-                                            <div className='spacer-price-and-amount-dialog-row'></div>
-                                            <div >{`x${item.amount}`}</div>
+                        <div>
+                            {ctx.cart.map((item, index) => {
+                                return <div key={item.timeStamp}>
+                                    <div className='dialog-item'>
+                                        <div>
+                                            <div className='title-and-price title-menu-item'>{item.title}</div>
+                                            <div className='price-and-amount-dialog-row'>
+                                                <div className='title-and-price price'>{`$${item.price}`}</div>
+                                                <div className='spacer-price-and-amount-dialog-row'></div>
+                                                <div >{`x${item.amount}`}</div>
+                                            </div>
+                                        </div>
+                                        <div className='spacer-dialog-item'></div>
+                                        <div className='remove-cart-item-button' onClick={() => ctx.removeFromCart(item.timeStamp)}>
+                                            <center>
+                                                <span class="material-icons icon-style">
+                                                    remove
+                                                </span>
+                                            </center>
                                         </div>
                                     </div>
-                                    <div className='spacer-dialog-item'></div>
-                                    <div className='remove-cart-item-button' onClick={() => ctx.removeFromCart(item.timeStamp)}>
-                                        <center>
-                                            <span class="material-icons icon-style">
-                                                remove
-                                            </span>
-                                        </center>
-                                    </div>
-                                </div>
-                                <hr />
-                            </div>;
-                        })}
-                        <div className='title-and-price title-menu-item' >{`Total Amount = $${totalPrice.toFixed(2)}`}</div>
+                                    <hr />
+                                </div>;
+                            })}
+                            <div className='title-and-price title-menu-item' >{`Total Amount = $${totalPrice.toFixed(2)}`}</div>
+                            <hr />
+                            <div>
+                                <div className='title-and-price title-menu-item'>Personal Details</div>
+
+                                <form className='address'>
+                                    <input className='address-item' type="text" placeholder="User Name" name="userName" onChange={(event) => userAddress.userName = event.target.value} />
+                                    <input className='address-item' type="phone" placeholder="Phone No" name="phoneNo" onChange={(event) => userAddress.phoneNo = event.target.value} />
+                                    <input className='address-item' type="email" placeholder="Email" name="email" onChange={(event) => userAddress.email = event.target.value} />
+                                    <input className='address-item' type="text" placeholder="Address" name="address" onChange={(event) => userAddress.address = event.target.value} />
+                                </form>
+                            </div>
+                            <hr />
+                        </div>
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
@@ -87,6 +111,7 @@ function AppBar(props) {
                         Close
                     </button>
                     <div onClick={() => {
+                        ctx.placeOrder(userAddress);
                         console.log('ordering: ...');
                         console.log(ctx.cart);
                     }}
